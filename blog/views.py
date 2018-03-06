@@ -300,7 +300,6 @@ class TagView(ListView):
         return super(TagView, self).get_queryset().filter(tags=tag)
 
 
-"""
 def search(request):
     q = request.GET.get('q')
     error_msg = ''
@@ -309,7 +308,6 @@ def search(request):
         error_msg = "请输入关键词"
         return render(request, 'blog/index.html', {'error_msg': error_msg})
 
-    post_list = Post.objects.filter(Q(title__icontains=q) | Q(body__icontains=q))
+    post_list = Post.objects.filter(Q(title__icontains=q) | Q(body__icontains=q) | Q(excerpt__icontains=q))
     return render(request, 'blog/index.html', {'error_msg': error_msg,
                                                'post_list': post_list})
-"""
